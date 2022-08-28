@@ -8,6 +8,10 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+// CONTROLLERS 
+const bandsController = require('./controllers/bands_controller')
+app.use('/bands', bandsController)
+
 //Sequelize Connection
 // SEQUELIZE CONNECTION
 //const sequelize = new Sequelize(process.env.PG_URI)
@@ -18,7 +22,6 @@ app.use(express.urlencoded({ extended: false }))
 //} catch(err) {
 //    console.log(`Unable to connect to PG: ${err}`) 
 //}
-
 
 // ROOT
 app.get('/', (req, res) => {
