@@ -9,6 +9,10 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+// CONTROLLERS 
+const bandsController = require('./controllers/bands_controller')
+app.use('/bands', bandsController)
+
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -20,7 +24,3 @@ app.get('/', (req, res) => {
 app.listen(process.env.PORT, () => {
     console.log(`🎸 Rockin' on port: ${process.env.PORT}`)
 })
-
-// CONTROLLERS 
-const bandsController = require('./controllers/bands_controller')
-app.use('/bands', bandsController)
