@@ -1,3 +1,4 @@
+
 // DEPENDENCIES
 const express = require('express')
 const app = express()
@@ -7,21 +8,6 @@ const { Sequelize } = require('sequelize')
 require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-
-// CONTROLLERS 
-const bandsController = require('./controllers/bands_controller')
-app.use('/bands', bandsController)
-
-//Sequelize Connection
-// SEQUELIZE CONNECTION
-//const sequelize = new Sequelize(process.env.PG_URI)
-
-//try {
-//    sequelize.authenticate() 
-//    console.log(`Connected with Sequelize at ${process.env.PG_URI}`) 
-//} catch(err) {
-//    console.log(`Unable to connect to PG: ${err}`) 
-//}
 
 // ROOT
 app.get('/', (req, res) => {
